@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Clipboard</title>
+</head>
+<body>
+    <h1>File Add</h1>
+
+    <form action="{{ url_for('file_add') }}" method="post" enctype="multipart/form-data" id="file_upload_form">
+        <button type="submit">Add</button>
+        <a href="{{ url_for('index') }}" class="back">Back</a>
+
+        <br><br>
+
+        <input type="text" name="title" placeholder="title">
+        <input type="password" name="password" placeholder="password">
+
+        <br>
+
+        <input type="file" name="file" id="file_input" placeholder="file">
+    </form>
+
+    <progress id="upload_progress" value="0" max="100"></progress>
+    <p id="progress_text">0%</p>
+
+    <br>
+    <a href="https://github.com/Y0rFa1se/Web-Clipboard.git" class="ref">Github Repository</a>
+</body>

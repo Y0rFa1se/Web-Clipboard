@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Clipboard</title>
+</head>
+<body>
+    <h1>Edit</h1>
+
+    <form action="{{ url_for('edit') }}" method="post">
+        <input type="hidden" name="original_title" value="{{ title }}">
+        <input type="hidden" name="original_password" value="{{ password }}">
+        <input type="hidden" name="content_type" value="{{ content_type }}">
+
+        <button type="submit">Edit</button>
+        <a href="{{ url_for('index') }}" class="back">Back</a>
+
+        <br><br>
+
+        <input type="text" name="title" placeholder="title" value="{{ title }}">
+        <input type="password" name="password" placeholder="password" value="{{ password }}">
+
+        <br>
+
+        <textarea name="content" placeholder="content" rows="10">{{ content }}</textarea>
+    </form>
+
+    <br>
+    <a href="https://github.com/Y0rFa1se/Web-Clipboard.git" class="ref">Github Repository</a>
+</body>

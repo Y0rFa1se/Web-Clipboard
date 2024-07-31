@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <script src="{{ url_for('static', filename='js/copy.js') }}"></script>
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Clipboard</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    {% if content_type == "file" %}
+        <form action="{{ url_for('download') }}" method="post" class="inline">
+            <input type="hidden" name="file_name" value="{{ content }}">
+            <input type="hidden" name="password" value="{{ password }}">
+            <button type="submit">download</button>
+        </form>
+    {% elif content_type == "text" %}
+        <button type="button" onclick="pbcopy();" class="inline">Copy</button>
+
+        <form action="{{ url_for('edit_page') }}" method="post" class="inline">
+            <input type="hidden" name="title" value="{{ title }}">
+            <input type="hidden" name="password" value="{{ password }}">
+            <input type="hidden" name="content" value="{{ content }}">
+            <input type="hidden" name="content_type" value="text">
+            <button type="submit">Edit</button>
+        </form>
+
+    {% elif content_type == "markdown" %}
+        <form action="{{ url_for('edit_page') }}" method="post" class="inline">
+            <input type="hidden" name="title" value="{{ title }}">
+            <input type="hidden" name="password" value="{{ password }}">
+            <input type="hidden" name="content" value="{{ content }}">
+            <input type="hidden" name="content_type" value="markdown">
+            <button type="submit">Edit</button>
+        </form>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="back" class="inline">Back</a>
+
+    <div>
+        {% if content_type == "markdown" %}
+            {{ md_content | safe }}
+        {% else %}
+            <pre>{{ content }}</pre>
+        {% endif %}
+        <textarea id="copy_txt" style="display:none;">{{ content }}</textarea>
+    </div>
+
+    <br>
+    <a href="https://github.com/Y0rFa1se/Web-Clipboard.git" class="ref">Github Repository</a>
+</body>

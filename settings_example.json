@@ -1,0 +1,24 @@
+{
+    "PORT": 8000,
+    "SSL": {
+        "ENABLED": false,
+        "KEY_PATH": "keypath",
+        "CERT_PATH": "certpath"
+    },
+
+    "CHUNK_SIZE": 10485760,
+    "DB_PATH": "dbpath",
+    "STORAGE_PATH": "storagepath",
+    "LOG_FILE": "logpath",
+
+    "ADMIN_PASSWORD": "adpw",
+    "PASSWORDS": [
+        "pw1",
+        "pw2"
+    ],
+
+    "WEBHOOK": {
+        "ENABLED": false,
+        "URL": "webhook"
+    }
+}

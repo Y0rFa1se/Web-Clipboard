@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Clipboard</title>
+</head>
+<body>
+    <h1>Designed soon...</h1>
+
+    <div>
+        <a href="{{ url_for('add_page') }}">Add</a>
+        <a href="{{ url_for('file_add_page') }}">File Add</a>
+    </div>
+
+    <br><br>
+
+    <div>
+        {% for title in titles %}
+            <form action="{{ url_for('auth') }}" method="post" class="inline">
+                <input type="hidden" name="query" value="content">
+                <input type="hidden" name="title" value="{{ title }}">
+                <button type="submit" class="title">{{ title }}</button>
+            </form>
+            <form action="{{ url_for('auth') }}" method="post" class="inline">
+                <input type="hidden" name="query" value="delete">
+                <input type="hidden" name="title" value="{{ title }}">
+                <button type="submit">Delete</button>
+            </form>
+
+            <br><br>
+        {% endfor %}
+    </div>
+
+    <br>
+    <a href="https://github.com/Y0rFa1se/Web-Clipboard.git" class="ref">Github Repository</a>
+</body>

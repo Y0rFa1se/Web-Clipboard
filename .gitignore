@@ -1,0 +1,11 @@
+/modules/__pycache__
+
+/test
+/modules/test.py
+test.py
+templates/test.html
+static/css/test.css
+static/js/test.js
+
+settings.json
+app.log

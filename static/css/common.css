@@ -1,0 +1,113 @@
+:root {
+    --background-color: #121212;
+    --text-color: #c8c8c8;
+    --link-color: rgb(179, 137, 225);
+    --button-background: #333333;
+    --button-text: #ffffff;
+    --input-background: #333333;
+    --input-text: #ffffff;
+    --input-border: #555555;
+}
+
+body {
+    overflow-wrap: break-word;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 1em;
+    text-align: center;
+}
+
+main {
+    padding: 2em;
+}
+
+button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #444444;
+}
+
+.inline {
+    display: inline-block;
+}
+
+input {
+    background-color: var(--input-background);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #888888;
+}
+
+textarea {
+    background-color: var(--input-background);
+    color: var(--input-text);
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+textarea::placeholder {
+    color: #888888;
+}
+
+.title {
+    background: none;
+    border: 1px solid rgb(127, 127, 127);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+progress {
+    width: 100%;
+}
+
+.checkbox-container {
+    text-align: left;
+    width: initial;
+    display: initial;
+    align-items: left;
+}
+
+.checkbox-container input[type="checkbox"] {
+    text-align: left;
+    width: initial;
+    display: initial;
+    align-items: left;
+    margin-right: 10px;
+}
