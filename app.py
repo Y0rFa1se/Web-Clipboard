@@ -102,13 +102,13 @@ def content(title):
         content = DB.get(title, password)
         content_type = DB.get_content_type(title, password)
         md_content = ""
-        file_size = 0
+        file_size = "0"
 
         if (content_type == "markdown"):
             md_content = text2md(content)
         
         elif (content_type == "file"):
-            file_size = Storage.get_file_size(content)
+            file_size = f"{Storage.get_file_size(content):.2f}"
 
         return render_template("content.html", title=title, content=content, content_type=content_type, password=password, md_content=md_content, file_size=file_size)
     
