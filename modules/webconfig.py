@@ -5,9 +5,11 @@ class WebConfig:
     ssl_enabled = False
     cert_path = ""
     key_path = ""
+    debug = True
 
     @classmethod
     def configure(cls, SETTINGS):
+        cls.debug = SETTINGS["DEBUG"]
         cls.port = SETTINGS["PORT"]
         cls.ssl_enabled = SETTINGS["SSL"]["ENABLED"]
         cls.cert_path = SETTINGS["SSL"]["CERT_PATH"]
@@ -29,3 +31,7 @@ class WebConfig:
     @staticmethod
     def get_port():
         return WebConfig.port
+    
+    @staticmethod
+    def get_debug():
+        return WebConfig.debug

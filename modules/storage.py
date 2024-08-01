@@ -38,7 +38,7 @@ class Storage:
         if not Storage.is_safe_path(file_path):
             return -1
         
-        return os.path.getsize(file_path)
+        return os.path.getsize(file_path) / (1024 * 1024)
     
     @staticmethod
     def exists(file):

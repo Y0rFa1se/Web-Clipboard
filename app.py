@@ -9,8 +9,6 @@ from modules.logger import Logger
 
 from modules.safe_md import filter, text2md
 
-DEBUG = False
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -104,11 +102,15 @@ def content(title):
         content = DB.get(title, password)
         content_type = DB.get_content_type(title, password)
         md_content = ""
+        file_size = 0
 
         if (content_type == "markdown"):
             md_content = text2md(content)
+        
+        elif (content_type == "file"):
+            file_size = Storage.get_file_size(content)
 
-        return render_template("content.html", title=title, content=content, content_type=content_type, password=password, md_content=md_content)
+        return render_template("content.html", title=title, content=content, content_type=content_type, password=password, md_content=md_content, file_size=file_size)
     
     return render_template("auth.html", title=title, query="content")
 
@@ -174,4 +176,4 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0",
             port=WebConfig.get_port(),
             ssl_context=WebConfig.ssl(),
-            debug=DEBUG)
+            debug=WebConfig.get_debug())

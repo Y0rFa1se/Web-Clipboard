@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
     <script src="{{ url_for('static', filename='js/copy.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/share.js') }}"></script>
 
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,12 +44,19 @@
 
     <a href="{{ url_for('index') }}" class="back" class="inline">Back</a>
 
+    <br><br>
+
+    <button class="share_button" type="button">Share</button>
+
     <div>
         {% if content_type == "markdown" %}
             {{ md_content | safe }}
-        {% else %}
+        {% elif content_type == "text" %}
             <p>{{ content }}</p>
+        {% elif content_type == "file" %}
+            <p>{{ content }} ({{ file_size }} MB)</p>
         {% endif %}
+
         <textarea id="copy_txt" style="display:none;">{{ content }}</textarea>
     </div>
 
