@@ -16,6 +16,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 a {
     text-decoration: none;
     padding: 10px;
