@@ -47,7 +47,7 @@
         {% if content_type == "markdown" %}
             {{ md_content | safe }}
         {% else %}
-            <pre>{{ content }}</pre>
+            <p>{{ content }}</p>
         {% endif %}
         <textarea id="copy_txt" style="display:none;">{{ content }}</textarea>
     </div>
