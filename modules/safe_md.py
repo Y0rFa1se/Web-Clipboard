@@ -1,8 +1,8 @@
-import markdown
+import markdown2 as markdown
 import re
 
 def text2md(text):
-    return markdown.markdown(text)
+    return markdown.markdown(text, extensions=["tables", "footnotes", "fenced_code", "codehilite"])
 
 def filter(md_content):
     # Regex to find markdown links and images with file:// schema
