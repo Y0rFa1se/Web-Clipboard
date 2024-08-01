@@ -16,6 +16,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+pre {
+	overflow-wrap: break-word;
+}
+
 a {
     text-decoration: none;
     padding: 10px;
