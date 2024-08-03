@@ -175,5 +175,4 @@ def delete():
 if __name__ == "__main__":
     app.run(host="0.0.0.0",
             port=WebConfig.get_port(),
-            ssl_context=WebConfig.ssl(),
             debug=WebConfig.get_debug())
